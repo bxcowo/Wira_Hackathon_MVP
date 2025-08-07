@@ -1,0 +1,344 @@
+/* TransitAI App-Level Styles */
+
+/* 
+ * This file provides app-level CSS that complements the global styles in src/styles.css
+ * Contains shared utilities, component overrides, and app-specific styling
+ */
+
+/* Button System Enhancement - Extends global design tokens */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border-radius: var(--radius-lg);
+  position: relative;
+  outline: none;
+}
+
+.btn:focus-visible {
+  box-shadow: var(--shadow-focus);
+}
+
+.btn:disabled {
+  opacity: var(--disabled-opacity);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Button Variants */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.btn-secondary {
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--surface-secondary);
+  border-color: var(--border-dark);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--primary-blue);
+  color: var(--text-inverse);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--surface-secondary);
+  color: var(--text-primary);
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-sm);
+  min-height: var(--button-height-sm);
+}
+
+.btn-md {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-base);
+  min-height: var(--button-height-md);
+}
+
+.btn-lg {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-lg);
+  min-height: var(--button-height-lg);
+}
+
+/* Loading State Enhancement */
+.btn-loading {
+  pointer-events: none;
+  color: transparent !important;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: btn-spin 1s linear infinite;
+  color: var(--text-inverse);
+}
+
+.btn-secondary.btn-loading::after,
+.btn-outline.btn-loading::after,
+.btn-ghost.btn-loading::after {
+  color: var(--primary-blue);
+}
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Container System Enhancement */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--container-padding-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--container-padding-xs);
+  }
+}
+
+/* Utility Classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.visually-hidden {
+  @extend .sr-only;
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.full-width { width: 100%; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+
+/* Animation Utilities */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* Form Enhancement */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+  background-color: var(--surface-primary);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-focus);
+}
+
+.form-control.is-invalid {
+  border-color: var(--border-error);
+}
+
+.form-control.is-invalid:focus {
+  border-color: var(--border-error);
+  box-shadow: var(--shadow-error-focus);
+}
+
+/* Card Component Enhancement */
+.card {
+  background: var(--surface-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-medium);
+}
+
+.card-header {
+  padding: var(--space-6) var(--space-6) 0;
+}
+
+.card-body {
+  padding: var(--space-6);
+}
+
+.card-footer {
+  padding: 0 var(--space-6) var(--space-6);
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .hidden-mobile { display: none !important; }
+  .visible-mobile { display: block !important; }
+}
+
+@media (min-width: 769px) {
+  .hidden-desktop { display: none !important; }
+  .visible-desktop { display: block !important; }
+}
+
+/* App-specific overrides for third-party libraries */
+
+/* Leaflet Map Styling */
+.leaflet-container {
+  font-family: var(--font-family-primary);
+  border-radius: var(--radius-lg);
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius-lg);
+  font-family: var(--font-family-primary);
+}
+
+.leaflet-popup-content {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+/* Google Maps styling will be handled by the Maps API */
+
+/* Print styles */
+@media print {
+  .btn, .card {
+    box-shadow: none !important;
+  }
+  
+  .btn-primary, .btn-secondary {
+    background: none !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--text-primary) !important;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .card,
+  .form-control,
+  .animate-pulse,
+  .animate-spin,
+  .animate-bounce {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .btn:hover {
+    transform: none !important;
+  }
+}
+
+/* High contrast mode enhancements */
+@media (prefers-contrast: high) {
+  .btn,
+  .card,
+  .form-control {
+    border-width: 2px;
+    border-color: var(--text-primary);
+  }
+  
+  .btn-primary {
+    background: var(--text-primary);
+    color: var(--surface-primary);
+  }
+  
+  .btn:focus-visible {
+    outline: 3px solid var(--text-primary);
+    outline-offset: 2px;
+  }
+}
