@@ -1,6 +1,3 @@
-/* TransitAI Dashboard Styles */
-
-/* Global Dashboard */
 .dashboard-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
@@ -8,14 +5,11 @@
   position: relative;
 }
 
-/* Enhanced accessibility and focus management */
 *:focus-visible {
   outline: 2px solid #3B82F6;
   outline-offset: 2px;
   border-radius: 0.25rem;
 }
-
-/* Improved contrast for accessibility */
 .dashboard-container::before {
   content: '';
   position: fixed;
@@ -33,7 +27,6 @@
   z-index: 1;
 }
 
-/* Header */
 .dashboard-header {
   background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
   color: white;
@@ -210,7 +203,6 @@
   height: 1rem;
 }
 
-/* Main Layout */
 .dashboard-main {
   max-width: 1400px;
   margin: 0 auto;
@@ -220,7 +212,6 @@
   gap: 2rem;
 }
 
-/* Statistics */
 .stats-section {
   margin-bottom: 1rem;
 }
@@ -322,7 +313,6 @@
 .stat-change.positive { color: #10B981; }
 .stat-change.negative { color: #EF4444; }
 
-/* Sections */
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -339,7 +329,6 @@
   margin: 0;
 }
 
-/* Map */
 .map-section {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
@@ -527,7 +516,6 @@
 .sample-marker.bicivia { background: #FBBF24; }
 .sample-marker.corredor { background: #3B82F6; }
 
-/* Table */
 .table-section {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
@@ -747,18 +735,22 @@
 }
 
 .status-badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
 }
 
-.status-badge.activo { background: #FEF2F2; color: #DC2626; }
-.status-badge.proceso { background: #FFFBEB; color: #D97706; }
-.status-badge.resuelto { background: #F0FDF4; color: #16A34A; }
+.status-badge.activo { background: linear-gradient(135deg, #FEF2F2, #FEE2E2); color: #DC2626; border: 1px solid rgba(220, 38, 38, 0.2); }
+.status-badge.proceso { background: linear-gradient(135deg, #FFFBEB, #FEF3C7); color: #D97706; border: 1px solid rgba(217, 119, 6, 0.2); }
+.status-badge.resuelto { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); color: #16A34A; border: 1px solid rgba(22, 163, 74, 0.2); }
 
 .actions-cell {
   white-space: nowrap;
@@ -836,7 +828,6 @@
   font-size: 0.875rem;
 }
 
-/* Pagination */
 .pagination-container {
   display: flex;
   justify-content: space-between;
@@ -882,7 +873,6 @@
   cursor: not-allowed;
 }
 
-/* Enhanced Loading States */
 .loading-skeleton {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
@@ -912,7 +902,6 @@
   animation: spin 1s linear infinite;
 }
 
-/* Processing states */
 .infractions-table tbody tr.processing {
   background: rgba(59, 130, 246, 0.08);
   animation: processingPulse 2s infinite;
@@ -923,7 +912,6 @@
   50% { opacity: 0.7; }
 }
 
-/* District filter */
 .district-filter {
   padding: 0.75rem 1rem;
   border: 1px solid #D1D5DB;
@@ -940,7 +928,6 @@
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-/* Enhanced table location display */
 .location-info {
   display: flex;
   flex-direction: column;
@@ -962,7 +949,6 @@
   width: fit-content;
 }
 
-/* Priority Indicators */
 .priority-indicator {
   display: inline-block;
   width: 8px;
@@ -996,21 +982,6 @@
   }
 }
 
-/* Enhanced Status Indicators */
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  padding: 0.375rem 0.875rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  position: relative;
-  overflow: hidden;
-}
-
 .status-badge::before {
   content: '';
   position: absolute;
@@ -1026,25 +997,6 @@
   left: 100%;
 }
 
-.status-badge.activo {
-  background: linear-gradient(135deg, #FEF2F2, #FEE2E2);
-  color: #DC2626;
-  border: 1px solid rgba(220, 38, 38, 0.2);
-}
-
-.status-badge.proceso {
-  background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
-  color: #D97706;
-  border: 1px solid rgba(217, 119, 6, 0.2);
-}
-
-.status-badge.resuelto {
-  background: linear-gradient(135deg, #F0FDF4, #DCFCE7);
-  color: #16A34A;
-  border: 1px solid rgba(22, 163, 74, 0.2);
-}
-
-/* Animations */
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
@@ -1065,7 +1017,6 @@
   50% { transform: scale(1.1); }
 }
 
-/* Enhanced Responsive Design */
 @media (max-width: 1200px) {
   .header-content {
     grid-template-columns: auto 1fr auto;
@@ -1233,37 +1184,21 @@
     padding: 0.75rem;
   }
   
-  /* Enhanced Mobile Table Experience */
-  .table-section {
-    padding: 0.75rem;
-  }
+  .table-section { padding: 0.75rem; }
   
   .table-container {
     position: relative;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
-    scrollbar-color: var(--gray-400) var(--gray-100);
-    border-radius: var(--radius-lg);
+    scrollbar-color: #9CA3AF #F3F4F6;
+    border-radius: 1rem;
   }
   
-  .table-container::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  .table-container::-webkit-scrollbar-track {
-    background: var(--gray-100);
-    border-radius: var(--radius-sm);
-  }
-  
-  .table-container::-webkit-scrollbar-thumb {
-    background: var(--gray-400);
-    border-radius: var(--radius-sm);
-  }
-  
-  .table-container::-webkit-scrollbar-thumb:hover {
-    background: var(--gray-500);
-  }
+  .table-container::-webkit-scrollbar { height: 8px; }
+  .table-container::-webkit-scrollbar-track { background: #F3F4F6; border-radius: 0.25rem; }
+  .table-container::-webkit-scrollbar-thumb { background: #9CA3AF; border-radius: 0.25rem; }
+  .table-container::-webkit-scrollbar-thumb:hover { background: #6B7280; }
   
   .infractions-table { 
     font-size: 0.8rem;
@@ -1280,7 +1215,7 @@
     font-size: 0.75rem;
     position: sticky;
     top: 0;
-    background: var(--gray-50);
+    background: #F9FAFB;
     z-index: 1;
   }
   
@@ -1291,17 +1226,12 @@
     line-height: 1.4;
   }
   
-  /* Mobile-optimized action buttons */
-  .action-buttons {
-    flex-direction: row;
-    gap: 0.375rem;
-    justify-content: center;
-  }
+  .action-buttons { flex-direction: row; gap: 0.375rem; justify-content: center; }
   
   .action-btn {
     width: 2rem;
     height: 2rem;
-    border-radius: var(--radius-md);
+    border-radius: 0.5rem;
   }
   
   .action-btn svg {
@@ -1309,18 +1239,9 @@
     height: 0.875rem;
   }
   
-  /* Compact status badges */
-  .status-badge {
-    font-size: 0.7rem;
-    padding: 0.25rem 0.5rem;
-  }
+  .status-badge { font-size: 0.7rem; padding: 0.25rem 0.5rem; }
   
-  /* Better mobile pagination */
-  .pagination-controls {
-    gap: 0.25rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  .pagination-controls { gap: 0.25rem; justify-content: center; flex-wrap: wrap; }
   
   .page-btn {
     min-width: 2.5rem;
@@ -1329,7 +1250,6 @@
   }
 }
 
-/* Ultra small screens - Enhanced mobile experience */
 @media (max-width: 480px) {
   .dashboard-main {
     padding: 0.5rem;
@@ -1389,11 +1309,7 @@
     font-size: 0.8rem;
   }
   
-  /* Compact table for very small screens */
-  .infractions-table {
-    font-size: 0.75rem;
-    min-width: 650px;
-  }
+  .infractions-table { font-size: 0.75rem; min-width: 650px; }
   
   .infractions-table th,
   .infractions-table td {
@@ -1409,10 +1325,7 @@
     font-size: 0.875rem;
   }
   
-  /* Stack form controls vertically on very small screens */
-  .table-controls {
-    gap: 0.75rem;
-  }
+  .table-controls { gap: 0.75rem; }
   
   .export-button,
   .status-filter,
@@ -1422,109 +1335,40 @@
   }
 }
 
-/* Enhanced accessibility and contrast support */
 @media (prefers-contrast: high) {
-  .stat-card {
-    border-width: 2px;
-    border-color: var(--text-primary);
-  }
-  
-  .filter-toggle {
-    border-width: 2px;
-  }
-  
-  .filter-toggle.active {
-    border-width: 3px;
-  }
-  
-  .status-badge {
-    border-width: 2px;
-  }
-  
-  .infractions-table th,
-  .infractions-table td {
-    border-width: 1px;
-    border-color: var(--text-primary);
-  }
-  
-  .action-btn {
-    border-width: 2px;
-  }
+  .stat-card, .filter-toggle, .status-badge, .action-btn { border-width: 2px; }
+  .filter-toggle.active { border-width: 3px; }
+  .infractions-table th, .infractions-table td { border-width: 1px; }
 }
 
-/* Focus management for mobile */
 @media (max-width: 768px) {
-  .filter-toggle:focus-visible,
-  .action-btn:focus-visible,
-  .page-btn:focus-visible {
+  .filter-toggle:focus-visible, .action-btn:focus-visible, .page-btn:focus-visible {
     outline-width: 3px;
     outline-offset: 1px;
   }
 }
 
-/* Touch-friendly interactive elements */
 @media (hover: none) and (pointer: coarse) {
-  .filter-toggle,
-  .action-btn,
-  .page-btn,
-  .refresh-button,
-  .export-button,
-  .status-filter,
-  .district-filter {
-    min-height: 44px;
-    touch-action: manipulation;
-  }
-  
-  .mobile-menu-btn {
-    min-width: 44px;
-    min-height: 44px;
-  }
-  
-  .infractions-table tr {
-    min-height: 60px;
-  }
-  
-  .search-input {
-    min-height: 44px;
-  }
-  
-  /* Better touch feedback */
-  .filter-toggle:active,
-  .action-btn:active,
-  .page-btn:active {
-    background-color: var(--primary-blue-100);
-    transform: scale(0.98);
-  }
+  .filter-toggle, .action-btn, .page-btn, .refresh-button, .export-button, .status-filter, .district-filter, .search-input { min-height: 44px; touch-action: manipulation; }
+  .mobile-menu-btn { min-width: 44px; min-height: 44px; }
+  .infractions-table tr { min-height: 60px; }
+  .filter-toggle:active, .action-btn:active, .page-btn:active { background-color: #DBEAFE; transform: scale(0.98); }
 }
 
-/* Enhanced reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
-  .loading-spinner,
-  .animate-spin {
-    animation: none !important;
-  }
-  
-  .alert-pulse,
-  .priority-indicator.alta {
-    animation: none !important;
-  }
+  .loading-spinner, .animate-spin, .alert-pulse, .priority-indicator.alta { animation: none !important; }
 }
 
-/* Ensure Leaflet map tiles are visible */
 .leaflet-tile-pane {
   filter: brightness(0.95) contrast(1.05);
 }
 
-/* Custom marker styling (optional) */
 .leaflet-marker-icon {
   border-radius: 50%;
   border: 2px solid white;
