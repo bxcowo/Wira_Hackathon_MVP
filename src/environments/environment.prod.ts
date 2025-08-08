@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  googleMapsApiKey: 'tu-clave'
+  googleMapsApiKey: 'AIzaSyBNC5aEIKcwaws39vqAidRTjgfcYDYFAr4'
 };
