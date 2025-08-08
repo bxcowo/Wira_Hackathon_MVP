@@ -147,6 +147,46 @@ import { NavigationService } from '../../core/services';
       color: var(--gray-400);
       font-size: var(--font-size-sm);
     }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .footer {
+        padding: var(--space-16) 0 var(--space-6);
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-12);
+        text-align: center;
+      }
+
+      .footer-links {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        text-align: center;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-2);
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer {
+        padding: var(--space-12) 0 var(--space-4);
+      }
+
+      .footer-content {
+        gap: var(--space-8);
+      }
+
+      .link-group a {
+        padding: var(--space-2);
+        margin-bottom: var(--space-2);
+      }
+    }
   `]
 })
 export class FooterComponent {

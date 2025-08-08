@@ -134,15 +134,38 @@
   padding: 0 var(--container-padding);
 }
 
+/* Enhanced mobile container spacing */
 @media (max-width: 768px) {
   .container {
     padding: 0 var(--container-padding-sm);
+  }
+  
+  /* Mobile-friendly button sizes */
+  .btn {
+    min-height: var(--button-height-mobile);
+    font-size: var(--font-size-sm);
+  }
+  
+  .btn-lg {
+    min-height: calc(var(--button-height-mobile) + 0.5rem);
   }
 }
 
 @media (max-width: 480px) {
   .container {
     padding: 0 var(--container-padding-xs);
+  }
+  
+  /* Stack buttons vertically on small screens */
+  .hero-actions,
+  .button-group {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -219,6 +242,15 @@
   border: 2px solid var(--border-light);
   border-radius: var(--radius-lg);
   transition: all var(--transition-fast);
+  min-height: var(--form-input-height);
+}
+
+/* Mobile form improvements */
+@media (max-width: 768px) {
+  .form-control {
+    min-height: var(--form-input-height-mobile);
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
 }
 
 .form-control:focus {
@@ -262,10 +294,56 @@
   padding: 0 var(--space-6) var(--space-6);
 }
 
+/* Mobile utility classes */
+.mobile-scroll-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mobile-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.mobile-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Touch-friendly interactive elements */
+@media (hover: none) and (pointer: coarse) {
+  .btn, .form-control, .clickable {
+    min-height: 44px; /* Apple's recommended touch target */
+    touch-action: manipulation;
+  }
+  
+  /* Better touch feedback */
+  .btn:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+}
+
 /* Responsive Utilities */
 @media (max-width: 768px) {
   .hidden-mobile { display: none !important; }
   .visible-mobile { display: block !important; }
+  .mobile-full-width { width: 100% !important; }
+  .mobile-text-center { text-align: center !important; }
+}
+
+@media (max-width: 480px) {
+  .hidden-mobile-sm { display: none !important; }
+  .visible-mobile-sm { display: block !important; }
 }
 
 @media (min-width: 769px) {

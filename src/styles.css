@@ -162,11 +162,14 @@
   
   /* Component Specific */
   --navbar-height: 4rem;
+  --navbar-height-mobile: 3.5rem;
   --hero-min-height: calc(100vh - var(--navbar-height));
   --form-input-height: 3rem;
+  --form-input-height-mobile: 2.75rem;
   --button-height-sm: 2.25rem;
   --button-height-md: 2.75rem;
   --button-height-lg: 3rem;
+  --button-height-mobile: 2.5rem;
   
   /* Interactive States */
   --hover-opacity: 0.9;
@@ -177,6 +180,30 @@
   --backdrop-blur: 20px;
   --glass-background: rgba(255, 255, 255, 0.9);
   --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile-first CSS Variables */
+@media (max-width: 768px) {
+  :root {
+    /* Smaller spacing on mobile */
+    --container-padding: var(--space-4);
+    --navbar-height: var(--navbar-height-mobile);
+    --form-input-height: var(--form-input-height-mobile);
+    --button-height-lg: var(--button-height-mobile);
+    
+    /* Adjusted font sizes for mobile */
+    --font-size-5xl: 2.5rem;   /* Smaller hero titles */
+    --font-size-4xl: 2rem;
+    --font-size-3xl: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --container-padding: var(--space-3);
+    --font-size-5xl: 2.25rem;
+    --font-size-4xl: 1.875rem;
+  }
 }
 
 /* === Global Reset & Base Styles === */
